@@ -17,4 +17,5 @@ spring:
         hbm2ddl:
           auto: none
   liquibase:
+    enabled: true
     change-log: classpath:liquibase/changelog.yml

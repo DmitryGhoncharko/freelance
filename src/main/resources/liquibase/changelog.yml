@@ -24,7 +24,7 @@ databaseChangeLog:
             endDelimiter: ;
             splitStatements: true
             sql: |
-              create table freelance."order"
+              create table freelance."order_t"
               (
                   id                bigserial
                       primary key,
@@ -36,7 +36,7 @@ databaseChangeLog:
                   last_update_date  timestamp     not null default current_timestamp
               );
 
-              alter table freelance."order"
+              alter table freelance."order_t"
                   owner to freelance;
 
   - changeSet:
@@ -48,14 +48,14 @@ databaseChangeLog:
             endDelimiter: ;
             splitStatements: true
             sql: |
-              insert into freelance."order_status" (id, order_status_name)
-              values (1, 'complete');
-              insert into freelance."order_status" (id, order_status_name)
-              values (2, 'open');
-              insert into freelance."order_status" (id, order_status_name)
-              values (3, 'progress');
-              insert into freelance."order_status" (id, order_status_name)
-              values (4, 'removed');
+              insert into freelance."order_status" (order_status_name)
+              values ('complete');
+              insert into freelance."order_status" (order_status_name)
+              values ('open');
+              insert into freelance."order_status" (order_status_name)
+              values ('progress');
+              insert into freelance."order_status" (order_status_name)
+              values ('removed');
 
   - changeSet:
       id: 3
@@ -66,116 +66,116 @@ databaseChangeLog:
             endDelimiter: ;
             splitStatements: true
             sql: |
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 1', 'Description for Order 1', 100.00, 1, '2023-08-01 12:34:56', '2023-08-01 12:34:56');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 2', 'Description for Order 2', 150.00, 2, '2023-08-02 15:45:30', '2023-08-02 15:45:30');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 3', 'Description for Order 3', 99.00, 3, '2023-04-03 09:23:15', '2023-08-03 09:23:15');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 4', 'Description for Order 4', 11.00, 4, '2023-02-04 18:52:40', '2023-08-04 18:52:40');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 5', 'Description for Order 5', 100.00, 1, '2023-01-01 12:34:56', '2023-08-01 12:34:56');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 6', 'Description for Order 6', 150.00, 2, '2023-08-02 15:45:30', '2023-08-02 15:45:30');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 7', 'Description for Order 7', 99.00, 3, '2023-04-03 09:23:15', '2023-08-03 09:23:15');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 8', 'Description for Order 8', 11.00, 4, '2023-08-04 18:52:40', '2023-08-04 18:52:40');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 9', 'Description for Order 9', 100.00, 1, '2023-08-01 12:34:56', '2023-08-01 12:34:56');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 10', 'Description for Order 10', 150.00, 2, '2023-02-02 15:45:30', '2023-08-02 15:45:30');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 11', 'Description for Order 11', 99.00, 3, '2023-08-03 09:23:15', '2023-08-03 09:23:15');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 12', 'Description for Order 12', 11.00, 4, '2023-08-13 18:52:40', '2023-08-04 18:52:40');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 13', 'Description for Order 13', 100.00, 1, '2023-08-01 12:34:56', '2023-08-01 12:34:56');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 14', 'Description for Order 14', 150.00, 2, '2023-08-12 15:45:30', '2023-08-02 15:45:30');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 15', 'Description for Order 15', 99.00, 3, '2023-08-03 09:23:15', '2023-08-03 09:23:15');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 16', 'Description for Order 16', 11.00, 4, '2023-08-04 18:52:40', '2023-08-04 18:52:40');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 17', 'Description for Order 17', 100.00, 1, '2023-08-01 12:34:56', '2023-08-01 12:34:56');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 18', 'Description for Order 18', 150.00, 2, '2023-08-02 15:45:30', '2023-08-02 15:45:30');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 19', 'Description for Order 19', 99.00, 3, '2022-08-03 09:23:15', '2023-08-03 09:23:15');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 20', 'Description for Order 20', 11.00, 4, '2021-08-04 18:52:40', '2023-08-04 18:52:40');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 21', 'Description for Order 21', 100.00, 1, '2023-08-01 12:34:56', '2023-08-01 12:34:56');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 22', 'Description for Order 22', 150.00, 2, '2023-08-02 15:45:30', '2023-08-02 15:45:30');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 23', 'Description for Order 23', 99.00, 3, '2021-08-03 09:23:15', '2023-08-03 09:23:15');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 24', 'Description for Order 24', 11.00, 4, '2023-08-04 18:52:40', '2023-08-04 18:52:40');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 25', 'Description for Order 25', 100.00, 1, '2023-08-01 12:34:56', '2023-08-01 12:34:56');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 26', 'Description for Order 26', 150.00, 2, '2023-08-02 15:45:30', '2023-08-02 15:45:30');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 27', 'Description for Order 27', 99.00, 3, '2023-08-03 09:23:15', '2023-08-03 09:23:15');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 28', 'Description for Order 28', 11.00, 4, '2023-08-04 18:52:40', '2023-08-04 18:52:40');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 29', 'Description for Order 29', 100.00, 1, '2023-08-01 12:34:56', '2023-08-01 12:34:56');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 30', 'Description for Order 30', 150.00, 2, '2023-08-02 15:45:30', '2023-08-02 15:45:30');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 31', 'Description for Order 31', 99.00, 3, '2023-08-03 09:23:15', '2023-08-03 09:23:15');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 32', 'Description for Order 32', 11.00, 4, '2023-08-04 18:52:40', '2023-08-04 18:52:40');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 33', 'Description for Order 33', 100.00, 1, '2023-08-01 12:34:56', '2023-08-01 12:34:56');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 34', 'Description for Order 34', 150.00, 2, '2023-08-02 15:45:30', '2023-08-02 15:45:30');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 35', 'Description for Order 35', 99.00, 3, '2023-08-03 09:23:15', '2023-08-03 09:23:15');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 36', 'Description for Order 36', 11.00, 4, '2023-08-04 18:52:40', '2023-08-04 18:52:40');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 37', 'Description for Order 37', 100.00, 1, '2023-08-01 12:34:56', '2023-08-01 12:34:56');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 38', 'Description for Order 38', 150.00, 2, '2023-08-02 15:45:30', '2023-08-02 15:45:30');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 39', 'Description for Order 39', 99.00, 3, '2023-08-03 09:23:15', '2023-08-03 09:23:15');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 40', 'Description for Order 40', 11.00, 4, '2023-08-04 18:52:40', '2023-08-04 18:52:40');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 41', 'Description for Order 41', 100.00, 1, '2023-08-01 12:34:56', '2023-08-01 12:34:56');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 42', 'Description for Order 42', 150.00, 2, '2023-08-02 15:45:30', '2023-08-02 15:45:30');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 43', 'Description for Order 43', 99.00, 3, '2023-08-03 09:23:15', '2023-08-03 09:23:15');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 44', 'Description for Order 44', 11.00, 4, '2023-08-04 18:52:40', '2023-08-04 18:52:40');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 45', 'Description for Order 45', 100.00, 1, '2023-08-01 12:34:56', '2023-02-01 12:34:56');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 46', 'Description for Order 46', 150.00, 2, '2023-08-02 15:45:30', '2023-08-02 15:45:30');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 47', 'Description for Order 47', 99.00, 3, '2023-08-03 09:23:15', '2023-08-03 09:23:15');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 48', 'Description for Order 48', 11.00, 4, '2023-08-04 18:52:40', '2023-03-04 18:52:40');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 49', 'Description for Order 49', 100.00, 1, '2023-08-01 12:34:56', '2023-08-01 12:34:56');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 50', 'Description for Order 50', 150.00, 2, '2023-08-02 15:45:30', '2022-08-02 15:45:30');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 51', 'Description for Order 51', 99.00, 3, '2023-08-03 09:23:15', '2023-08-03 09:23:15');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 52', 'Description for Order 52', 11.00, 4, '2023-08-04 18:52:40', '2021-08-04 18:52:40');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 53', 'Description for Order 53', 100.00, 1, '2023-08-01 12:34:56', '2023-08-01 12:34:56');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 54', 'Description for Order 54', 150.00, 2, '2023-08-02 15:45:30', '2023-08-02 15:45:30');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 55', 'Description for Order 55', 99.00, 3, '2023-08-03 09:23:15', '2023-08-03 09:23:15');
-              insert into freelance."order" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              insert into freelance."order_t" (order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
               values ('Order 56', 'Description for Order 56', 11.00, 4, '2023-08-04 18:52:40', '2023-08-04 18:52:40');
               

@@ -22,7 +22,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "order")
+@Table(name = "order_t")
 @Getter
 @Setter
 @Builder
@@ -32,10 +32,7 @@ import java.sql.Timestamp;
 @EqualsAndHashCode
 public class Order {
     @Id
-    @SequenceGenerator(name = "order_seq",
-            sequenceName = "order_sequence",
-            initialValue = 1, allocationSize = 20)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "order_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private BigInteger id;
     @Column(nullable = false, name = "order_name")
     @EqualsAndHashCode.Exclude

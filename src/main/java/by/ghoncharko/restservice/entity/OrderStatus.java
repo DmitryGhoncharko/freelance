@@ -31,10 +31,7 @@ import java.util.List;
 @EqualsAndHashCode
 public class OrderStatus {
     @Id
-    @SequenceGenerator(name = "order_status_seq",
-            sequenceName = "order_status_sequence",
-            initialValue = 1, allocationSize = 20)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "order_status_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private BigInteger id;
     @Column(nullable = false, name = "order_status_name")
     @EqualsAndHashCode.Exclude

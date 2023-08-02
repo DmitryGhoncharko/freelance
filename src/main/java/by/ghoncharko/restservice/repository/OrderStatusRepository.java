@@ -4,6 +4,7 @@ import by.ghoncharko.restservice.entity.OrderStatus;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigInteger;
@@ -16,4 +17,7 @@ public interface OrderStatusRepository extends JpaRepository<OrderStatus, BigInt
     Optional<OrderStatus> findByOrderStatusName(String orderStatusName);
 
     Optional<OrderStatus> findById(BigInteger id);
+
+    @Query("SELECT DISTINCT os FROM OrderStatus os LEFT JOIN FETCH os.orders")
+    Page<OrderStatus> findAllWithoutLazy(Pageable pageable);
 }

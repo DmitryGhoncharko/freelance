@@ -1,0 +1,100 @@
+databaseChangeLog:
+  - changeSet:
+      id: 4
+      author: Dmitry Ghoncharko
+      dbms: postgresql,h2
+      changes:
+        - createTable:
+            tableName: order_status
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: order_status_name
+                  type: varchar(1000)
+                  constraints:
+                    nullable: false
+                    unique: true
+  - changeSet:
+      id: 5
+      author: Dmitry Ghoncharko
+      dbms: postgresql,h2
+      changes:
+        - createTable:
+            tableName: "order_t"
+            columns:
+              - column:
+                  name: id
+                  type: bigserial
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: order_name
+                  type: varchar(400)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: order_description
+                  type: varchar(4000)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: order_cost
+                  type: numeric
+                  constraints:
+                    nullable: false
+              - column:
+                  name: order_status_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: date_created
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_update_date
+                  type: timestamp
+                  constraints:
+                    nullable: false
+                    defaultValueComputed: current_timestamp
+  - changeSet:
+      id: 6
+      author: Dmitry Ghoncharko
+      changes:
+        - sql:
+            dbms: postgresql,h2
+            endDelimiter: ;
+            splitStatements: true
+            sql: |
+              insert into order_status (order_status_name)
+              values ('complete');
+              insert into order_status (order_status_name)
+              values ('open');
+              insert into order_status (order_status_name)
+              values ('progress');
+              insert into order_status (order_status_name)
+              values ('removed');
+  - changeSet:
+      id: 7
+      author: Dmitry Ghoncharko
+      changes:
+        - sql:
+            dbms: postgresql,h2
+            endDelimiter: ;
+            splitStatements: true
+            sql: |
+              insert into order_t(order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              values ('Order 1', 'Description for Order 1', 100.00, 1, '2023-08-01 12:34:56', '2023-08-01 12:34:56');
+              insert into order_t(order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              values ('Order 2', 'Description for Order 2', 150.00, 2, '2023-08-02 15:45:30', '2023-08-02 15:45:30');
+              insert into order_t(order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              values ('Order 3', 'Description for Order 3', 99.00, 3, '2023-04-03 09:23:15', '2023-08-03 09:23:15');
+              insert into order_t(order_name, order_description, order_cost, order_status_id, date_created, last_update_date)
+              values ('Order 4', 'Description for Order 4', 11.00, 4, '2023-02-04 18:52:40', '2023-08-04 18:52:40');
